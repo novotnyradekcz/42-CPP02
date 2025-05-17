@@ -6,7 +6,7 @@
 /*   By: rnovotny <rnovotny@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:43:34 by rnovotny          #+#    #+#             */
-/*   Updated: 2025/05/13 16:35:17 by rnovotny         ###   ########.fr       */
+/*   Updated: 2025/05/17 16:26:01 by rnovotny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,11 @@ Fixed	&Fixed::max(Fixed &a, Fixed &b)
 const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
 {
 	return (a > b ? a : b);
+}
+
+float Fixed::toFloat() const
+{
+	return static_cast<float>(this->_fixedPointValue) / (1 << _fractionalBits);
 }
 
 int Fixed::toInt() const
